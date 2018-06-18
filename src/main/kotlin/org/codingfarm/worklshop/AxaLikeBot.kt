@@ -51,6 +51,18 @@ class AxaLikeBot(botUserName: String, botToken: String) : AbilityBot(botUserName
     }
 
     @Suppress("unused")
+    fun reset(): Ability {
+        return Ability
+                .builder()
+                .name("reset")
+                .info("send a reset")
+                .locality(Locality.ALL)
+                .privacy(Privacy.PUBLIC)
+                .action {context -> client.publish("paho/metest/axadodavote", MqttMessage("reset".toByteArray())); silent.send("ein neues spiel beginnt", context.chatId())}
+                .build()
+    }
+
+    @Suppress("unused")
     fun sayHelloWorld(): Ability {
         return Ability
                 .builder()
