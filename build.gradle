@@ -9,8 +9,8 @@ buildscript {
     }
 }
 
-group 'org.codingfarm.workshop'
-version '1.0-SNAPSHOT'
+group 'org.codingfarm.axachatbot'
+version '0.1'
 
 apply plugin: 'kotlin'
 
@@ -19,10 +19,13 @@ repositories {
 }
 
 dependencies {
+    implementation group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version : '1.2.0'
+    testImplementation group: 'junit', name : 'junit', version :  '3.8.2'
     compile (
         "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
-        group: 'org.telegram', name: 'telegrambots-abilities', version: '3.6'
+        group: 'org.telegram', name: 'telegrambots-abilities', version: '3.6',
     )
+
 }
 
 compileKotlin {
